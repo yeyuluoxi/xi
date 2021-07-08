@@ -60,7 +60,7 @@ function Home(props: RouterProps) {
         rowKey="RowKey"
         columns={columns}
       />
-      <Paging  page={page} changePage={changePage} pageTotal={20000} total={100}/>
+      <Paging  page={page} changePage={changePage} pageTotal={20} total={100}/>
     </div>
   );
 }

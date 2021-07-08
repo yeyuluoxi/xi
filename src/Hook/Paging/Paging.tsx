@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
+import React, {ChangeEvent, createRef, FocusEvent, KeyboardEvent} from "react";
 import "./Paging.scss";
 
 interface PageProps{
@@ -46,10 +46,13 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
   }
 
   let val: string = "";
+  const initVal = (event: HTMLInputElement) => val = event?.value || "";
+
   const setVal = (event: ChangeEvent) => val = (event.target as HTMLInputElement).value || "";
 
   const getVal = (event: KeyboardEvent | FocusEvent, deal: boolean) => {
     if(deal || (event as KeyboardEvent).key === "Enter") {
+      // val = (event.target as HTMLInputElement).value || "";
       if(val){
         let result: number = parseInt(val);
         if(result < 1) result = 1;
@@ -81,7 +84,7 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
           className="toPage"
         >
           前往
-          <input type="number" onChange={setVal} onBlur={(e) => getVal(e, true)} onKeyDown={(e) => getVal(e, false)}/>
+          <input ref={initVal} type="number" onChange={setVal} onBlur={(e) => getVal(e, true)} onKeyDown={(e) => getVal(e, false)}/>
           页
         </div>
       </div>
