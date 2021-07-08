@@ -269,4 +269,18 @@ body, html, #root {
   &::-webkit-scrollbar {
     display: none; /* Chrome Safari */
   }
+  .ant-spin-nested-loading{
+    height: 100%;
+  }
+}
+
+.yButton{
+  width: 152px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #234994;
+  color: #234994;
+  cursor: pointer;
 }

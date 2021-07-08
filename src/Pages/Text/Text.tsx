@@ -16,7 +16,7 @@ export default class Text extends React.Component<RouterProps, TextState>{
   }
 
   linkTo() {
-    this.props.history.push("/Detail", {
+    this.props.history.push("/Home", {
       text: "text"
     })
   }

@@ -1,8 +1,4 @@
-import {YStore} from "../Type/TStore";
-
-const initState: YStore = {
-  val: "123",
-  loading: false
-}
-
-export default initState
+import reducer from "./reducer";
+import {createStore} from "redux";
+const store = createStore(reducer);
+export default store;

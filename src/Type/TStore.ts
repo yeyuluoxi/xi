@@ -1,4 +1,10 @@
+import {CancelTokenSource} from "axios";
+
 export interface YStore{
   val: string,
-  loading?: boolean
+  loading: boolean,
+  axiosRequest: {
+    status: boolean,
+    source: CancelTokenSource | null
+  }
 }

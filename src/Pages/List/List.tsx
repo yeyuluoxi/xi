@@ -1,7 +1,7 @@
 import React from "react";
 import {RouterProps} from "react-router-dom";
 
-function Detail(props: RouterProps) {
+function List(props: RouterProps) {
   console.log(props, "params");
   const toHome = () => {
     props.history.push("/Home");
@@ -13,4 +13,4 @@ function Detail(props: RouterProps) {
   );
 }
 
-export default Detail;
+export default List;

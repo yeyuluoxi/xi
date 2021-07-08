@@ -750,7 +750,7 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-mini-create-react-context@^0.4.0:
+mini-create-react-context@^0.4.0, mini-create-react-context@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npm.taobao.org/mini-create-react-context/download/mini-create-react-context-0.4.1.tgz?cache=0&sync_timestamp=1603390124779&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmini-create-react-context%2Fdownload%2Fmini-create-react-context-0.4.1.tgz#072171561bfdc922da08a60c2197a497cc2d1d5e"
   integrity sha1-ByFxVhv9ySLaCKYMIZekl8wtHV4=
@@ -1213,6 +1213,13 @@ react-refresh@^0.9.0:
   version "0.9.0"
   resolved "https://registry.nlark.com/react-refresh/download/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
   integrity sha1-cYYzN63D5cL4pr/d0Srjv+Mqr78=
+
+react-router-cache-route@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.nlark.com/react-router-cache-route/download/react-router-cache-route-1.11.1.tgz?cache=0&sync_timestamp=1623403079407&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-router-cache-route%2Fdownload%2Freact-router-cache-route-1.11.1.tgz#c5f51d708e85aaa94fd25c8fce58ef00536e01d3"
+  integrity sha1-xfUdcI6FqqlP0lyPzljvAFNuAdM=
+  dependencies:
+    mini-create-react-context "^0.4.1"
 
 react-router-dom@^5.2.0:
   version "5.2.0"

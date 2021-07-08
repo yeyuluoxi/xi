@@ -1,31 +1,56 @@
-import {Method} from "axios";
+import {AxiosRequestConfig, Method} from "axios";
+import {OString} from "./TBase";
 
 export interface IObject {
   [key: string]: any
 }
-export interface IParams extends IObject{
-  uid?: string,
-  page?: number
+
+export interface YObject {
+  [key: string]: string | number | any[] | IObject
 }
-export interface ISendForm{
+
+export interface ISendForm {
   method: Method,
   url: string,
   loading: boolean,
   cancel: boolean,
-  params?: IParams | FormData,
+  params?: YObject | FormData,
   config?: object
 }
+
 export interface IResult<T> {
   code: number;
   msg: string;
   data: T;
 }
+
 export type IAxiosMethod =
   <T = any>(
-    method: Method,
-    url: string,
+    option: AxiosRequestConfig,
     loading: boolean,
-    cancel: boolean,
-    params?: IParams | FormData,
-    config?: IObject
+    cancel: boolean
   ) => Promise<IResult<T>>;
+
+export type AxiosGet =
+  <T = any>(
+    url: string,
+    params?: YObject,
+    status?: boolean[],
+    config?: IObject
+  ) => Promise<IResult<T>>
+
+export type AxiosPost =
+  <T = any>(
+    url: string,
+    params?: YObject | FormData,
+    status?: boolean[],
+    config?: IObject
+  ) => Promise<IResult<T>>
+
+export interface TUrl {
+  HomeUrl: OString
+}
+
+export interface TReq {
+  [key: string]: <T = any>(params: YObject, status?: boolean[], config?: IObject) => Promise<IResult<T>>
+}

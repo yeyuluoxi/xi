@@ -1,14 +1,17 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import CacheRoute, {CacheSwitch} from "react-router-cache-route";
 import routes from "./route";
 import {connect} from "react-redux";
 import {YStore} from "../Type/TStore";
+import childRoute from "./child";
 
 import {Spin} from "antd";
 
-const Router = ({loading}) => (
+const Router = ({loading}: {loading: boolean}) => (
   <Spin tip="loading" size="large" spinning={loading}>
     <BrowserRouter>
+      {/*
       <Switch>
         {
           routes.map(router => {
@@ -22,7 +25,13 @@ const Router = ({loading}) => (
             )
           })
         }
+        <Redirect from="/" to="/Home" />
       </Switch>
+      */}
+      <CacheSwitch>
+        {childRoute(routes)}
+        <Redirect from="/" to="/Home" />
+      </CacheSwitch>
     </BrowserRouter>
   </Spin>
 );
