@@ -50,18 +50,20 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
 
   const setVal = (event: ChangeEvent) => val = (event.target as HTMLInputElement).value || "";
 
-  const getVal = (event: KeyboardEvent | FocusEvent, deal: boolean) => {
-    if(deal || (event as KeyboardEvent).key === "Enter") {
-      // val = (event.target as HTMLInputElement).value || "";
-      if(val){
-        let result: number = parseInt(val);
-        if(result < 1) result = 1;
-        if(result > pageTotal) result = pageTotal;
-        (event.target as HTMLInputElement).value = String(result);
-        if(page !== result) changePage(result);
-        return ;
+  const getVal = (deal: boolean) => {
+    return (event: KeyboardEvent | FocusEvent) => {
+      if(deal || (event as KeyboardEvent).key === "Enter") {
+        // val = (event.target as HTMLInputElement).value || "";
+        if(val){
+          let result: number = parseInt(val);
+          if(result < 1) result = 1;
+          if(result > pageTotal) result = pageTotal;
+          (event.target as HTMLInputElement).value = String(result);
+          if(page !== result) changePage(result);
+          return ;
+        }
+        (event.target as HTMLInputElement).value = "";
       }
-      (event.target as HTMLInputElement).value = "";
     }
   }
 
@@ -84,7 +86,7 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
           className="toPage"
         >
           前往
-          <input ref={initVal} type="number" onChange={setVal} onBlur={(e) => getVal(e, true)} onKeyDown={(e) => getVal(e, false)}/>
+          <input ref={initVal} type="number" onChange={setVal} onBlur={getVal(true)} onKeyDown={getVal( false)}/>
           页
         </div>
       </div>
