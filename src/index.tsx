@@ -10,6 +10,8 @@ import Router from "./Router";
 import {Provider} from "react-redux";
 import store from "./Store";
 
+console.log(process.env.REACT_APP_BASE, "meta");
+
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
