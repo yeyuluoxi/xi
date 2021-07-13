@@ -11,17 +11,26 @@ import Paging from "../../Hook/Paging/Paging";
 
 function Home(props: RouterProps) {
   const [page, setPage] = useState(5);
+  const [list, setList] = useState([]);
+  const getList = (page?: number) => {
+    Request.HomeReq.getList({
+      page: page || 1,
+      size: 15
+    }).then((result) => {
+      setList(result.data.list)
+      console.log(result, "result");
+    })
+  }
   const changePage = (val: number) => {
     setPage(val);
+    getList(val)
   }
-
-  const [list, setList] = useState([]);
   const columns: ColumnType<HomeItem>[] = [
-    {title: "名称", dataIndex: "projectname"},
+    {title: "名称", dataIndex: "RowKey"},
     {
       title: "合同价",
-      dataIndex: "pactprice",
-      render: (a, b, c) => {
+      dataIndex: "source",
+      render: (a) => {
         return (
           <div>{a}</div>
         )
@@ -30,13 +39,7 @@ function Home(props: RouterProps) {
   ];
   useEffect(() => {
     document.title = "主页";
-    Request.HomeReq.getList({
-      page: 1,
-      size: 15
-    }).then((result) => {
-      setList(result.data.list)
-      console.log(result, "result");
-    })
+    getList()
   }, [])
 
   const toDetail = () => {
@@ -71,7 +74,7 @@ const mapStateToProps = (state: YStore) => {
   }
 }
 
-const mapDispatchToProps: MapDispatchToPropsFunction<any ,any> = (dispatch, prop) => {
+const mapDispatchToProps: MapDispatchToPropsFunction<any ,any> = (dispatch) => {
   const val = Math.floor(Math.random() * 100);
   return {
     setVal: () => dispatch({type: "Home", val})
