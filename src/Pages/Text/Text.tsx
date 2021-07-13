@@ -1,6 +1,6 @@
 import React from "react";
 import "./Text.scss"
-import {RouteProps, RouterProps} from "react-router-dom";
+import {RouterProps} from "react-router-dom";
 
 interface TextState{
   text: string

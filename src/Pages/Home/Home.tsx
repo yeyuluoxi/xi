@@ -30,13 +30,13 @@ function Home(props: RouterProps) {
   ];
   useEffect(() => {
     document.title = "主页";
-    // Request.HomeReq.getList({
-    //   page: 1,
-    //   size: 15
-    // }).then((result) => {
-    //   setList(result.data.list)
-    //   console.log(result, "result");
-    // })
+    Request.HomeReq.getList({
+      page: 1,
+      size: 15
+    }).then((result) => {
+      setList(result.data.list)
+      console.log(result, "result");
+    })
   }, [])
 
   const toDetail = () => {
