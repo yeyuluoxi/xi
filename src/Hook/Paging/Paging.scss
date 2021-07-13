@@ -1,0 +1,44 @@
+.modePage{
+  .number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .total{
+      margin-right: 12px;
+    }
+    ul.page{
+      display: flex;
+      align-items: center;
+      li{
+        text-align: center;
+        cursor: pointer;
+        border:1px solid #b9c5d2;
+        border-radius: 6px;
+        padding: 0 2px;
+        min-width: 28px;
+        height: 28px;
+        margin: 0 4px;
+        background: #f0f5fb;
+        color: #131d35;
+        &.active{
+          color: #ffffff;
+          background: #234994;
+          border: none;
+        }
+      }
+    }
+    .toPage{
+      margin-left: 24px;
+      input{
+        text-align: center;
+        width: 50px;
+        height: 28px;
+        border:1px solid #b9c5d2;
+        border-radius: 6px;
+        background: #f0f5fb;
+        outline: none;
+        margin: 0 12px;
+      }
+    }
+  }
+}
