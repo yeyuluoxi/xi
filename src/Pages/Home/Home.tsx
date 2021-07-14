@@ -18,7 +18,6 @@ function Home(props: RouterProps) {
       size: 15
     }).then((result) => {
       setList(result.data.list)
-      console.log(result, "result");
     })
   }
   const changePage = (val: number) => {

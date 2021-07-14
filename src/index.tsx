@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
 //引入样式
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import './index.scss';
 
 import Router from "./Router";
 import {Provider} from "react-redux";
 import store from "./Store";
-
-console.log(process.env.REACT_APP_BASE, "meta");
 
 ReactDOM.render(
   <Provider store={store}>

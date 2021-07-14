@@ -410,6 +410,29 @@ module.exports = function (webpackEnv) {
                 
                 plugins: [
                   [
+                    require.resolve('babel-plugin-import'),
+                    {
+                      libraryName: 'antd',
+                      style: "css"
+                    }
+                  ],
+                  [
+                    require.resolve('babel-plugin-react-css-modules'),
+                    {
+                      // filetypes: {
+                      //   ".scss": {
+                      //     syntax: "sass-loader",
+                      //     // syntax: "postcss-scss",
+                      //   },
+                      // },
+                      // generateScopedName: "[path]___[name]__[local]___[hash:base64:5]",
+                      autoResolveMultipleImports: true,
+                      webpackHotModuleReloading: true,
+                      exclude: "node_modules",
+                      handleMissingStyleName: "warn",
+                    }
+                  ],
+                  [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
                       loaderMap: {
@@ -448,6 +471,7 @@ module.exports = function (webpackEnv) {
                     require.resolve('babel-preset-react-app/dependencies'),
                     { helpers: true },
                   ],
+                  // [require.resolve('babel-plugin-import'), { libraryName: 'antd', style: 'css' }],
                 ],
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
@@ -475,6 +499,9 @@ module.exports = function (webpackEnv) {
                 sourceMap: isEnvProduction
                   ? shouldUseSourceMap
                   : isEnvDevelopment,
+                // modules: {
+                //   getLocalIdent: getCSSModuleLocalIdent,
+                // },
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -508,6 +535,9 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
+                  // modules: {
+                  //   getLocalIdent: getCSSModuleLocalIdent,
+                  // },
                 },
                 'sass-loader'
               ),
