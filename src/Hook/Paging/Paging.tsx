@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
-import CSSModules from 'react-css-modules';
+// import CSSModules from 'react-css-modules';
 // import style from "./Paging.scss";
 // import "./Paging.module.scss"
 import style from "./Paging.module.scss"
