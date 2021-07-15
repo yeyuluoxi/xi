@@ -11,6 +11,9 @@
 # url
 /src/Axios/url.ts
 
+#idea
+/.idea
+
 # production
 /build
 
