@@ -40,7 +40,7 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
 
     return (
       list.map(elem => (
-        <li onClick={() => dealChange(elem)} className={elem === page ? "active" : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
+        <li onClick={() => dealChange(elem)} styleName={elem === page ? "active" : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
       ))
     )
   }
