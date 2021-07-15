@@ -66,13 +66,14 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.less$/;
 const lessModuleRegex = /\.global\.less$/;
 
+const md5 = require("js-md5");
+const nameRegex = /(?<=\\)[a-z]+(?=\.)/i;
 const generateScopedName = (name, filename) => {
-  let list = filename.split("\\");
-  filename = list.pop();
-  list = filename.split(".");
-  filename = list[0];
-  filename = `${filename}-${name}-test`
-  return filename;
+  let result = nameRegex.exec(filename);
+  if(result) filename = result[0];
+  else filename = "index";
+  const after = md5.hex(filename+name).slice(0,8);
+  return `${name}-y-${after}`;
 };
 
 const hasJsxRuntime = (() => {
@@ -563,6 +564,9 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
                 },
                 'sass-loader'
               ),
