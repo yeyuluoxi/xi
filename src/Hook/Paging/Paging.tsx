@@ -1,8 +1,5 @@
 import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
-// import CSSModules from 'react-css-modules';
-// import style from "./Paging.scss";
-// import "./Paging.module.scss"
-import style from "./Paging.module.scss"
+import "./Paging.less"
 
 interface PageProps{
   page: number, //  当前页码
@@ -43,7 +40,7 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
 
     return (
       list.map(elem => (
-        <li onClick={() => dealChange(elem)} className={elem === page ? style.active : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
+        <li onClick={() => dealChange(elem)} className={elem === page ? "active" : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
       ))
     )
   }
@@ -73,20 +70,20 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
   //  只有一页则不显示分页
   if(pageTotal <= 1) return null;
   return (
-    <div className={style.modePage}>
-      <div className={style.number}>
+    <div styleName="modePage">
+      <div styleName="number">
         {   //  无总条数时不显示
           total ?
-          <div
-            className={style.total}
-          >共{total}条</div>
+            <div
+              styleName="total"
+            >共{total}条</div>
             : ""
         }
-        <ul className={style.page}>
+        <ul styleName="page">
           {setPage()}
         </ul>
         <div
-          className={style.toPage}
+          styleName="toPage"
         >
           前往
           <input ref={initVal} type="number" onChange={setVal} onBlur={getVal(true)} onKeyDown={getVal( false)}/>

@@ -63,6 +63,17 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.global\.less$/;
+
+const generateScopedName = (name, filename) => {
+  let list = filename.split("\\");
+  filename = list.pop();
+  list = filename.split(".");
+  filename = list[0];
+  filename = `${filename}-${name}-test`
+  return filename;
+};
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -419,13 +430,14 @@ module.exports = function (webpackEnv) {
                   [
                     require.resolve('babel-plugin-react-css-modules'),
                     {
-                      // filetypes: {
-                      //   ".scss": {
-                      //     syntax: "sass-loader",
-                      //     // syntax: "postcss-scss",
-                      //   },
-                      // },
+                      filetypes: {
+                        ".less": {
+                          // syntax: "less-loader",
+                          syntax: "postcss-less",
+                        },
+                      },
                       // generateScopedName: "[path]___[name]__[local]___[hash:base64:5]",
+                      generateScopedName,
                       autoResolveMultipleImports: true,
                       webpackHotModuleReloading: true,
                       exclude: "node_modules",
@@ -499,9 +511,6 @@ module.exports = function (webpackEnv) {
                 sourceMap: isEnvProduction
                   ? shouldUseSourceMap
                   : isEnvDevelopment,
-                // modules: {
-                //   getLocalIdent: getCSSModuleLocalIdent,
-                // },
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -535,9 +544,6 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
-                  // modules: {
-                  //   getLocalIdent: getCSSModuleLocalIdent,
-                  // },
                 },
                 'sass-loader'
               ),
@@ -557,11 +563,42 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
-                  modules: {
-                    getLocalIdent: getCSSModuleLocalIdent,
-                  },
                 },
                 'sass-loader'
+              ),
+            },
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 3,
+                  sourceMap: isEnvProduction
+                    ? shouldUseSourceMap
+                    : isEnvDevelopment,
+                  modules: {
+                    getLocalIdent: ({resourcePath},b,name) => generateScopedName(name, resourcePath)
+                  },
+                },
+                'less-loader'
+              ),
+              // Don't consider CSS imports dead code even if the
+              // containing package claims to have no side effects.
+              // Remove this when webpack adds a warning or an error for this.
+              // See https://github.com/webpack/webpack/issues/6571
+              sideEffects: true,
+            },
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 3,
+                  sourceMap: isEnvProduction
+                    ? shouldUseSourceMap
+                    : isEnvDevelopment,
+                },
+                // 'postcss-loader'
+              'less-loader'
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.

@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 
 //引入样式
 // import 'antd/dist/antd.css';
-import './index.scss';
+import './index.global.less';
 
 import Router from "./Router";
 import {Provider} from "react-redux";

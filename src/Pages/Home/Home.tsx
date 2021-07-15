@@ -1,4 +1,4 @@
-import "./Home.scss";
+import "./Home.less";
 import React, {useState, useEffect} from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
 import {YStore} from "../../Type/TStore";
@@ -54,7 +54,7 @@ function Home(props: RouterProps) {
   }
 
   return (
-    <div className="modeHome">
+    <div styleName="modeHome">
       <div className="yButton" onClick={toDetail}>详情</div>
       <div className="yButton" onClick={toText}>其他</div>
       <Table

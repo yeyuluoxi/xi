@@ -1,5 +1,5 @@
 import React from "react";
-import "./Text.scss"
+import "./Text.less"
 import {RouterProps} from "react-router-dom";
 
 const Text = (props: RouterProps) => {
