@@ -13,5 +13,6 @@ export interface HomeItem{
   update: string,    //来源是否存在(update_backup)
   webupdatetime: string,    //更新时间
   RowKey: string,   //项目名称&行键
-  tablename: string //表名
+  tablename: string, //表名
+  id: number
 }

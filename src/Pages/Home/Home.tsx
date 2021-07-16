@@ -26,9 +26,9 @@ function Home(props: RouterProps) {
     getList(val);
   };
   const columns: ColumnType<HomeItem>[] = [
-    {title: "名称", dataIndex: "RowKey"},
+    {title: "名称", dataIndex: "projectname"},
     {
-      title: "合同价",
+      title: "来源",
       dataIndex: "source",
       render: (a) => {
         return (
@@ -55,7 +55,7 @@ function Home(props: RouterProps) {
       <div className="yButton" onClick={toText}>其他</div>
       <Table
         dataSource={list}
-        rowKey="RowKey"
+        rowKey="id"
         columns={columns}
       />
       <Paging  page={page} changePage={changePage} pageTotal={20} total={100}/>
