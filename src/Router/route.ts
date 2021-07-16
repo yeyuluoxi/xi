@@ -2,8 +2,7 @@ import Text from "../Pages/Text/Text";
 import Detail from "../Pages/Detail/Detail";
 import Home from "../Pages/Home/Home";
 import List from "../Pages/List/List";
-import {YRoute} from "../Type/TBoth";
-
+import {YRoute} from "../Type/TRoute";
 
 const routes: YRoute[] = [
   {

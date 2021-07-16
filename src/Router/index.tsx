@@ -4,8 +4,8 @@ import {HashRouter, Redirect} from 'react-router-dom';
 import {CacheSwitch} from "react-router-cache-route";
 import routes from "./route";
 import {connect} from "react-redux";
-import {YStore} from "../Type/TBoth";
 import childRoute from "./child";
+import {YStore} from "../Type/TStore";
 
 import {Spin} from "antd";
 

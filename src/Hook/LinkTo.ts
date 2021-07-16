@@ -1,4 +1,4 @@
-import {YLink} from "../Type/TBoth";
+import {YLink} from "../Type/THook";
 
 const linkTo: YLink = (props, name: string, alive = false, params?: Object) => {
   if(params){

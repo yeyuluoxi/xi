@@ -7,7 +7,9 @@ import {RouterProps} from "react-router-dom";
 import {ColumnType} from "antd/lib/table/interface";
 import Paging from "../../Hook/Paging/Paging";
 import {linkTo, dealTime} from "../../Hook/Method";
-import {Moment, YStore, HomeItem} from "../../Type/TBoth";
+import {HomeItem} from "../../Type/Home";
+import {Moment} from "moment";
+import {YStore} from "../../Type/TStore";
 
 function Home(props: RouterProps) {
   const [page, setPage] = useState<number>(5);

@@ -1,5 +1,5 @@
-import {YTime} from "../Type/TBoth";
 import moment from "moment";
+import {YTime} from "../Type/THook";
 
 export const dealTime: YTime = (
   date = "",
