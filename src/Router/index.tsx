@@ -11,24 +11,13 @@ import {Spin} from "antd";
 
 const Router = ({loading}: {loading: boolean}) => (
   <Spin tip="loading" size="large" spinning={loading}>
+    {/*<BrowserRouter>*/}
+    {/*  <CacheSwitch>*/}
+    {/*    {childRoute(routes)}*/}
+    {/*    <Redirect from="/" to="/Home" />*/}
+    {/*  </CacheSwitch>*/}
+    {/*</BrowserRouter>*/}
     <HashRouter>
-      {/*
-      <Switch>
-        {
-          routes.map(router => {
-            return (
-              <Route
-                exact
-                key={router.name}
-                path={router.path}
-                component={router.component}
-              />
-            )
-          })
-        }
-        <Redirect from="/" to="/Home" />
-      </Switch>
-      */}
       <CacheSwitch>
         {childRoute(routes)}
         <Redirect from="/" to="/Home" />
