@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter, Redirect} from 'react-router-dom';
+// import {BrowserRouter, Redirect} from 'react-router-dom';
+import {HashRouter, Redirect} from 'react-router-dom';
 import {CacheSwitch} from "react-router-cache-route";
 import routes from "./route";
 import {connect} from "react-redux";
@@ -10,7 +11,7 @@ import {Spin} from "antd";
 
 const Router = ({loading}: {loading: boolean}) => (
   <Spin tip="loading" size="large" spinning={loading}>
-    <BrowserRouter>
+    <HashRouter>
       {/*
       <Switch>
         {
@@ -32,7 +33,7 @@ const Router = ({loading}: {loading: boolean}) => (
         {childRoute(routes)}
         <Redirect from="/" to="/Home" />
       </CacheSwitch>
-    </BrowserRouter>
+    </HashRouter>
   </Spin>
 );
 
