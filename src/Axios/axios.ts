@@ -16,7 +16,7 @@ const httpAxios: IAxiosMethod = async(
   if (loading) {// 做加载动画处理
     store.dispatch({type: "Load", load: true});
   }
-  option.baseURL = "http://cninct.com/adminData";
+  option.baseURL = process.env.REACT_APP_LINE || "";
   if(cancel){
     const token = axios.CancelToken;
     const source = token.source();
