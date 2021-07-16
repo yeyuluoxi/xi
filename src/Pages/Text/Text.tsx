@@ -1,5 +1,5 @@
 import React from "react";
-import "./Text.less"
+import "./Text.less";
 import {RouterProps} from "react-router-dom";
 
 const Text = (props: RouterProps) => {
@@ -7,8 +7,8 @@ const Text = (props: RouterProps) => {
   const linkTo = () => {
     props.history.push("/Home", {
       text: "text"
-    })
-  }
+    });
+  };
 
   return (
     <div className="modeText">
@@ -21,6 +21,6 @@ const Text = (props: RouterProps) => {
       </div>
     </div>
   );
-}
+};
 
-export default Text
+export default Text;

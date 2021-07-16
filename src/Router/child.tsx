@@ -11,7 +11,7 @@ const childRoute: YGetRoute = (routes, base = "") => {
       component={router.component}
       when={router.when}
     />
-  ))
-}
+  ));
+};
 
-export default childRoute
+export default childRoute;

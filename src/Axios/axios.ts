@@ -14,21 +14,21 @@ const httpAxios: IAxiosMethod = async(
     store.getState().axiosRequest.source?.cancel("取消");
   }
   if (loading) {// 做加载动画处理
-    store.dispatch({type: "Load", load: true})
+    store.dispatch({type: "Load", load: true});
   }
   option.baseURL = "http://cninct.com/adminData";
   if(cancel){
     const token = axios.CancelToken;
     const source = token.source();
     option.cancelToken = source.token;
-    store.dispatch({type: "axios", source})
+    store.dispatch({type: "axios", source});
   }
   return new Promise((resolve, reject) => {
     axios(option).then(result => {
       store.dispatch({type: "Load", load: false});  // 取消动画
       if(result.data.code === 200){
         resolve(result.data);
-        return ;
+        return;
       }
       reject(result.data);
     }).catch((err) => {
@@ -37,9 +37,9 @@ const httpAxios: IAxiosMethod = async(
         // console.log(err, "cancel,success");
       }
       reject(err);
-    })
-  })
-}
+    });
+  });
+};
 
 const dealParams = (params?: YObject) => {
   params = params || {};
@@ -48,9 +48,9 @@ const dealParams = (params?: YObject) => {
     if (typeof (params as YObject)[elem] === "object") {
       (params as YObject)[elem] = JSON.stringify((params as YObject)[elem]);
     }
-  })
+  });
   return params;
-}
+};
 
 export const getAxios: AxiosGet = (
   url,
@@ -65,10 +65,10 @@ export const getAxios: AxiosGet = (
     headers: config,
     params: params,
     timeout: 120000
-  }
+  };
   const [loading = false, cancel = false] = status || [];
   return httpAxios(option, loading, cancel);
-}
+};
 
 export const postAxios: AxiosPost = (
   url,
@@ -78,7 +78,7 @@ export const postAxios: AxiosPost = (
 ) => {
   if(params instanceof FormData){
     params.append("uid", uid);
-    config = config || {"Content-Type":  "multipart/form-data"};
+    config = config || {"Content-Type": "multipart/form-data"};
   }else{
     params = dealParams(params);
   }
@@ -88,7 +88,7 @@ export const postAxios: AxiosPost = (
     headers: config,
     data: params instanceof FormData ? params : qs.stringify(params),
     timeout: 120000
-  }
+  };
   const [loading = false, cancel = false] = status || [];
   return httpAxios(option, loading, cancel);
-}
+};

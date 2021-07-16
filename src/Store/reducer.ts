@@ -1,8 +1,8 @@
-import {Action, Reducer} from 'redux'
+import {Action, Reducer} from "redux";
 import {YStore} from "../Type/TStore";
 import {CancelTokenSource} from "axios";
 
-interface YAct extends Action{
+interface YAct extends Action {
   val?: string,
   load?: boolean,
   source?: CancelTokenSource
@@ -15,7 +15,7 @@ const initState: YStore = {
     status: false,
     source: null
   }
-}
+};
 
 const reducer: Reducer<YStore, YAct> = (state = initState, action) => {
   switch (action.type) {
@@ -23,24 +23,24 @@ const reducer: Reducer<YStore, YAct> = (state = initState, action) => {
       return {
         ...state,
         val: action.val || ""
-      }
+      };
     case "Load":  //全局加载动画
       return {
         ...state,
         loading: action.load || false
-      }
+      };
     case "axios":
       const source = action.source || null;
       return {
         ...state,
         axiosRequest: {
-          status: source != null,
+          status: source !== null,
           source
         }
-      }
+      };
     default:
       return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

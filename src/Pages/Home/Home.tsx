@@ -17,13 +17,13 @@ function Home(props: RouterProps) {
       page: page || 1,
       size: 15
     }).then((result) => {
-      setList(result.data.list)
-    })
-  }
+      setList(result.data.list);
+    });
+  };
   const changePage = (val: number) => {
     setPage(val);
-    getList(val)
-  }
+    getList(val);
+  };
   const columns: ColumnType<HomeItem>[] = [
     {title: "名称", dataIndex: "RowKey"},
     {
@@ -32,14 +32,14 @@ function Home(props: RouterProps) {
       render: (a) => {
         return (
           <div>{a}</div>
-        )
+        );
       }
     }
   ];
   useEffect(() => {
     document.title = "主页";
-    getList()
-  }, [])
+    getList();
+  }, []);
 
   const toDetail = () => {
     props.history.push({
@@ -47,11 +47,11 @@ function Home(props: RouterProps) {
       state: {
         alive: true
       }
-    })
-  }
+    });
+  };
   const toText = () => {
     props.history.push("/Text");
-  }
+  };
 
   return (
     <div styleName="modeHome">
@@ -70,14 +70,14 @@ function Home(props: RouterProps) {
 const mapStateToProps = (state: YStore) => {
   return {
     val: state.val
-  }
-}
+  };
+};
 
 const mapDispatchToProps: MapDispatchToPropsFunction<any ,any> = (dispatch) => {
   const val = Math.floor(Math.random() * 100);
   return {
     setVal: () => dispatch({type: "Home", val})
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -5,7 +5,7 @@ function Detail(props: RouterProps) {
   console.log(props, "params");
   const toHome = () => {
     props.history.push("/Home");
-  }
+  };
   return (
     <div className="modeDetail">
       <div className="yButton" onClick={toHome}>列表</div>

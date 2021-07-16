@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
-import "./Paging.less"
+import "./Paging.less";
 
 interface PageProps{
   page: number, //  当前页码
@@ -21,7 +21,7 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
       default:
         changePage(current);
     }
-  }
+  };
 
   const setPage = () => {
     const list: number[] = [1];
@@ -42,8 +42,8 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
       list.map(elem => (
         <li onClick={() => dealChange(elem)} styleName={elem === page ? "active" : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
       ))
-    )
-  }
+    );
+  };
 
   let val: string = "";
   const initVal = (event: HTMLInputElement) => val = event?.value || "";
@@ -60,12 +60,12 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
           if(result > pageTotal) result = pageTotal;
           (event.target as HTMLInputElement).value = String(result);
           if(page !== result) changePage(result);
-          return ;
+          return;
         }
         (event.target as HTMLInputElement).value = "";
       }
-    }
-  }
+    };
+  };
 
   //  只有一页则不显示分页
   if(pageTotal <= 1) return null;
@@ -91,7 +91,7 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Paging;

@@ -29,7 +29,7 @@ const Router = ({loading}: {loading: boolean}) => (
 const mapStateToProps = (state: YStore) => {
   return {
     loading: state.loading
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Router);

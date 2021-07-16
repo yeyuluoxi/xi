@@ -18,9 +18,9 @@ const routes: YRoute[] = [
     when: (props) => {
       const status = props.location;
       if(status && status.state){
-        return Boolean((status.state as any).alive)
+        return Boolean((status.state as any).alive);
       }
-      return false
+      return false;
     }
   },
   {
@@ -28,10 +28,10 @@ const routes: YRoute[] = [
     name: "Detail",
     component: Detail
   }
-]
+];
 
 routes.forEach(elem => {
   if(!elem.when) elem.when = () => false;
-})
+});
 
 export default routes;
