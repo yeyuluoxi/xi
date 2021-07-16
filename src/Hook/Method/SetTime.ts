@@ -1,7 +1,7 @@
 import moment from "moment";
-import {YTime} from "../Type/THook";
+import {YSetTime} from "../../Type/THook";
 
-export const dealTime: YTime = (
+export const setTime: YSetTime = (
   date = "",
   format = "YYYY-MM-DD"
 ) => {
@@ -9,4 +9,4 @@ export const dealTime: YTime = (
   return moment(date, format);
 };
 
-export default dealTime;
+export default setTime;

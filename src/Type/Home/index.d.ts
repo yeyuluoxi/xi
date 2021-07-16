@@ -1,3 +1,5 @@
+import {RouterProps} from "react-router-dom";
+
 export interface HomeItem{
   count: string,  //唯一标识
   projectname: string, //项目名称
@@ -15,4 +17,14 @@ export interface HomeItem{
   RowKey: string,   //项目名称&行键
   tablename: string, //表名
   id: number
+}
+
+export interface HomeProp extends RouterProps{
+  val: number,
+  setVal: Function
+}
+
+export interface HomeTest{
+  val: number,
+  setVal: Function
 }
