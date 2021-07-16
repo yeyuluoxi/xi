@@ -1,4 +1,4 @@
-import {YGetRoute} from "../Type/TRoute";
+import {YGetRoute} from "../Type/TBoth";
 import CacheRoute from "react-router-cache-route";
 import React from "react";
 

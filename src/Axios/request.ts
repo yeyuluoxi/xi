@@ -1,6 +1,6 @@
 import {getAxios} from "./axios";
 import URL from "./url";
-import {TReq, YObject} from "../Type/YAxios";
+import {TReq, YObject} from "../Type/TBoth";
 
 const HomeReq: TReq = {
   getList: (params: YObject, status?: boolean[]) => getAxios(URL.HomeUrl.getList, params, status)

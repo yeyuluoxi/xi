@@ -1,5 +1,5 @@
 import {Action, Reducer} from "redux";
-import {YStore} from "../Type/TStore";
+import {YStore} from "../Type/TBoth";
 import {CancelTokenSource} from "axios";
 
 interface YAct extends Action {

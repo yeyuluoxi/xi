@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig} from 'axios';
-import {AxiosGet, AxiosPost, IAxiosMethod, YObject} from "../Type/YAxios";
+import {AxiosGet, AxiosPost, IAxiosMethod, YObject} from "../Type/TBoth";
 import qs from "qs";
 import store from "../Store";
 

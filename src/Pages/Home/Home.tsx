@@ -1,30 +1,35 @@
 import "./Home.less";
 import React, {useState, useEffect} from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
-import {YStore} from "../../Type/TStore";
 import Request from "../../Axios/request";
-import {Table} from "antd";
+import {DatePicker, Table} from "antd";
 import {RouterProps} from "react-router-dom";
 import {ColumnType} from "antd/lib/table/interface";
-import {HomeItem} from "../../Type/Home";
 import Paging from "../../Hook/Paging/Paging";
-import linkTo from "../../Hook/LinkTo";
+import {linkTo, dealTime} from "../../Hook/Method";
+import {Moment, YStore, HomeItem} from "../../Type/TBoth";
 
 function Home(props: RouterProps) {
-  const [page, setPage] = useState(5);
-  const [list, setList] = useState([]);
+  const [page, setPage] = useState<number>(5);
+  const [list, setList] = useState<HomeItem[]>([]);
+  const [date, setDate] = useState<Moment | null>(null);
   const getList = (page?: number) => {
-    Request.HomeReq.getList({
+    if(page) setPage(page);
+    Request.HomeReq.getList<{list: HomeItem[]}>({
       page: page || 1,
       size: 15
     }).then((result) => {
       setList(result.data.list);
     });
   };
-  const changePage = (val: number) => {
-    setPage(val);
-    getList(val);
+  const changePage = (val: number) => getList(val);
+
+  const getTime = (date: any, val: string) => {
+    if(val) setDate(dealTime(val));
+    else setDate(null);
   };
+
+
   const columns: ColumnType<HomeItem>[] = [
     {title: "名称", dataIndex: "projectname"},
     {
@@ -53,6 +58,7 @@ function Home(props: RouterProps) {
     <div styleName="modeHome">
       <div className="yButton" onClick={toDetail}>详情</div>
       <div className="yButton" onClick={toText}>其他</div>
+      <DatePicker value={date} onChange={getTime}/>
       <Table
         dataSource={list}
         rowKey="id"

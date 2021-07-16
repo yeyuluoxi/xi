@@ -10,10 +10,15 @@ import Router from "./Router";
 import {Provider} from "react-redux";
 import store from "./Store";
 
+import {ConfigProvider} from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Router />
+      <ConfigProvider locale={zhCN}>
+        <Router />
+      </ConfigProvider>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

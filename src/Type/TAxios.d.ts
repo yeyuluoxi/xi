@@ -54,3 +54,10 @@ export interface TUrl {
 export interface TReq {
   [key: string]: <T = any>(params: YObject, status?: boolean[], config?: IObject) => Promise<IResult<T>>
 }
+
+const AxiosType = {
+  AxiosGet,
+  AxiosPost
+};
+
+export default AxiosType;
