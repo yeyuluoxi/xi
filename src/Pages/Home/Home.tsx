@@ -8,6 +8,7 @@ import {RouterProps} from "react-router-dom";
 import {ColumnType} from "antd/lib/table/interface";
 import {HomeItem} from "../../Type/Home";
 import Paging from "../../Hook/Paging/Paging";
+import linkTo from "../../Hook/LinkTo";
 
 function Home(props: RouterProps) {
   const [page, setPage] = useState(5);
@@ -42,12 +43,7 @@ function Home(props: RouterProps) {
   }, []);
 
   const toDetail = () => {
-    props.history.push({
-      pathname: "/Detail",
-      state: {
-        alive: true
-      }
-    });
+    linkTo(props, "Detail", true);
   };
   const toText = () => {
     props.history.push("/Text");

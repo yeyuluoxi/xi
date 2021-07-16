@@ -2,7 +2,6 @@ import React from "react";
 import {RouterProps} from "react-router-dom";
 
 function Detail(props: RouterProps) {
-  console.log(props, "params");
   const toHome = () => {
     props.history.push("/Home");
   };
