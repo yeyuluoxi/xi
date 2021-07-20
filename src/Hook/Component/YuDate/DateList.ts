@@ -3,7 +3,7 @@ import {YDateItem, YDateList} from "../../../Type/THook";
 const maxList: number[] = [1, 3, 5, 7, 8, 10, 12];  //  31天月份
 const minList: number[] = [4, 6, 9, 11];   //  30天月份
 
-const getDays = (year: number, month: number) => {
+const getDays = (year: number, month: number) => {  //  求月份天数
   if(maxList.includes(month)) return 31;
   else if(minList.includes(month)) return 30;
   //  2月, 判断闰年
@@ -43,7 +43,6 @@ const dateList: YDateList = (year, month) => {
       day: weekDay
     });
   }
-
   return result;
 };
 export default dateList;

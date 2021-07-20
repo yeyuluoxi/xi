@@ -6,11 +6,15 @@ import dateList from "./DateList";
 import {DateProps} from "../../../Type/THook";
 
 const YuDate = ({date, gDate = () => {}}: DateProps) => {
-  const [year, month, day] = date?.split("-").map(elem => parseInt(elem));
+  if(!date){
+    const now = new Date();
+    date = `${now.getFullYear()}-${now.getMonth() + 1}`;
+  }
+  const [year, month, day = 0] = date.split("-").map(elem => parseInt(elem));
   const [yearVal, setYear] = useState<number>(year);
   const [monthVal, setMonth] = useState<number>(month);
 
-  const setActive = (dayVal: number, type: boolean) =>{
+  const setActive = (dayVal: number, type: boolean) =>{ //判断是否被选中
     if(type && yearVal === year && monthVal === month && dayVal === day) return "active";
     return "";
   };
@@ -29,7 +33,7 @@ const YuDate = ({date, gDate = () => {}}: DateProps) => {
         newMonth = 1;
       } else newMonth++;
     }
-    gDate(newYear, newMonth, dayVal);
+    gDate(`${newYear}-${newMonth < 10 ? "0" : ""}${newMonth}-${dayVal < 10 ? "0" : ""}${dayVal}`);
     setYear(newYear);
     setMonth(newMonth);
   };

@@ -19,9 +19,6 @@ export type YLink = (
 ) => void
 
 export interface DateProps{
-  year?: number, //  年
-  month?: number,  //  月
-  day?: number,  //  日
   gDate?: Function,
   date: string
 }

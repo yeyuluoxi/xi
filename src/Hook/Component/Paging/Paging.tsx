@@ -38,11 +38,9 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
       list.push(-1, pageTotal - 5, pageTotal - 4, pageTotal - 3, pageTotal - 2, pageTotal - 1, pageTotal);
     }
 
-    return (
-      list.map(elem => (
-        <li onClick={() => dealChange(elem)} styleName={elem === page ? "active" : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
-      ))
-    );
+    return list.map(elem => (
+      <li onClick={() => dealChange(elem)} styleName={elem === page ? "active" : ""} key={elem}>{[-1, -2].includes(elem) ? "..." : elem}</li>
+    ));
   };
 
   let val: string = "";
