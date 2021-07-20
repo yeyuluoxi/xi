@@ -17,3 +17,20 @@ export type YLink = (
   alive?: boolean,
   params?: Object
 ) => void
+
+export interface DateProps{
+  year?: number, //  年
+  month?: number,  //  月
+  day?: number,  //  日
+  gDate?: Function,
+  date: string
+}
+
+export interface YDateItem{
+  type: "before" | "after" | "now",
+  day: number
+}
+export type YDateList = (
+  year: number,
+  month: number
+) => YDateItem[]

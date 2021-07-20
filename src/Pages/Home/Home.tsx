@@ -62,11 +62,12 @@ function Home(props: HomeProp) {
       <div className="yButton" onClick={toDetail}>详情</div>
       <div>{props.val}</div>
       <div className="yButton" onClick={toText}>其他</div>
-      <DatePicker value={date} onChange={getTime}/>
+      <DatePicker value={date} onChange={getTime} showToday={false} inputReadOnly={true}/>
       <Table
         dataSource={list}
         rowKey="id"
         columns={columns}
+        pagination={false}
       />
       <Paging  page={page} changePage={changePage} pageTotal={20} total={100}/>
     </div>

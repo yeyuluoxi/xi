@@ -2,6 +2,7 @@ import Text from "../Pages/Text/Text";
 import Detail from "../Pages/Detail/Detail";
 import Home from "../Pages/Home/Home";
 import List from "../Pages/List/List";
+import Date from "../Pages/Date/Date";
 import {YRoute} from "../Type/TRoute";
 
 const routes: YRoute[] = [
@@ -32,6 +33,11 @@ const routes: YRoute[] = [
     path: "/List",
     name: "List",
     component: List
+  },
+  {
+    path: "/Date",
+    name: "Date",
+    component: Date
   }
 ];
 

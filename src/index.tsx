@@ -12,8 +12,8 @@ import store from "./Store";
 
 import {ConfigProvider} from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import moment from "moment";
 import "moment/locale/zh-cn";
+import moment from "moment";
 moment.locale("zh-cn");
 
 ReactDOM.render(
