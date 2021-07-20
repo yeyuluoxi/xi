@@ -1,7 +1,7 @@
 import React from "react";
 import {RouterProps} from "react-router-dom";
 
-function Detail(props: RouterProps) {
+const Detail = (props: RouterProps) => {
   const toHome = () => {
     props.history.push("/Home");
   };
@@ -10,6 +10,6 @@ function Detail(props: RouterProps) {
       <div className="yButton" onClick={toHome}>列表</div>
     </div>
   );
-}
+};
 
 export default Detail;

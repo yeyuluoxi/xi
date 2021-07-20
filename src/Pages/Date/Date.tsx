@@ -2,23 +2,18 @@ import React, {useState} from "react";
 import YuDate from "../../Hook/Component/YuDate/YuDate";
 import "./Date.less";
 
-function Date() {
-
-  const [dateVal, setDateVal] = useState<string>("");
-
+const Date = () => {
+  const [date, setDate] = useState<string>("");
   const getDate = (val: string) => {
-    setDateVal(val);
+    setDate(val);
   };
-
   return (
     <div styleName="modeDate">
       <div styleName="title">日期选择</div>
-      <div styleName="date">
-        {dateVal}
-      </div>
-      <YuDate date={dateVal} gDate={getDate} />
+      <div styleName="date">{date}</div>
+      <YuDate date={date} gDate={getDate} />
     </div>
   );
-}
+};
 
 export default Date;

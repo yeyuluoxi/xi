@@ -10,7 +10,7 @@ import {HomeItem, HomeProp} from "../../Type/Home";
 import {Moment} from "moment";
 import {YStore} from "../../Type/TStore";
 
-function Home(props: HomeProp) {
+const Home = (props: HomeProp) => {
 // function Home(props: HomeProp) {
   console.log(props, "params");
   const [page, setPage] = useState<number>(5);
@@ -72,7 +72,7 @@ function Home(props: HomeProp) {
       <Paging  page={page} changePage={changePage} pageTotal={20} total={100}/>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state: YStore) => {
   return {

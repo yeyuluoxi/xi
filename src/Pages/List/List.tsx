@@ -1,7 +1,7 @@
 import React from "react";
 import {RouterProps} from "react-router-dom";
 
-function List(props: RouterProps) {
+const List = (props: RouterProps) => {
   const toHome = () => {
     props.history.push("/Home");
   };
@@ -10,6 +10,6 @@ function List(props: RouterProps) {
       <div className="yButton" onClick={toHome}>列表</div>
     </div>
   );
-}
+};
 
 export default List;
