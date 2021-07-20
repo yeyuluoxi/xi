@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 
 //引入样式
 // import 'antd/dist/antd.css';
-import './index.global.less';
+import './Assets/css/common.global.less';
 
 import Router from "./Router";
 import {Provider} from "react-redux";
@@ -12,6 +12,9 @@ import store from "./Store";
 
 import {ConfigProvider} from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
+import moment from "moment";
+import "moment/locale/zh-cn";
+moment.locale("zh-cn");
 
 ReactDOM.render(
   <Provider store={store}>
