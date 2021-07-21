@@ -5,8 +5,13 @@ import cList from "./child";
 import childRoute from "../../Router/child";
 import {CacheSwitch} from "react-router-cache-route";
 import "./List.less";
+import {linkTo} from "../../Hook/Method";
 
 const List = (props: RouterProps) => {
+  const toCItem = (path: string) => {
+    path = "List" + path;
+    return () => linkTo(props, path, true);
+  };
   return (
     <div styleName="modeList">
       <YuHead path="Index" title="组件"  history={props.history}/>
@@ -14,7 +19,12 @@ const List = (props: RouterProps) => {
         <ul styleName="left" className="bgBlue">
           {
             cList.map(elem => (
-              <li styleName="child" className="pointer" key={elem.path}>{elem.name}</li>
+              <li
+                styleName="child"
+                className="pointer"
+                key={elem.path}
+                onClick={toCItem(elem.path)}
+              >{elem.name}</li>
             ))
           }
         </ul>

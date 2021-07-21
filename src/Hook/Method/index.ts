@@ -1,6 +1,6 @@
-import setTime from "./SetTime";
-import getTime from "./GetTime";
-import linkTo from "./LinkTo";
+import setTime from "./setTime";
+import getTime from "./getTime";
+import linkTo from "./linkTo";
 
 export {
   setTime,

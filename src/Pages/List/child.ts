@@ -1,12 +1,12 @@
 import {YRoute} from "../../Type/TRoute";
 import Date from "../../Pages/Date/Date";
-import Paging from "../../Hook/Component/Paging/Paging";
+import Page from "../Page/Page";
 
 const cList: YRoute[] = [
   {
     path: "/Page",
-    name: "Paging",
-    component: Paging
+    name: "Page",
+    component: Page
   },
   {
     path: "/Date",
