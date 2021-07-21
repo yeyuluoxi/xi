@@ -5,7 +5,7 @@ import {RouterProps} from "react-router-dom";
 const Text = (props: RouterProps) => {
 
   const linkTo = () => {
-    props.history.push("/Home", {
+    props.history.push("/Page", {
       text: "text"
     });
   };

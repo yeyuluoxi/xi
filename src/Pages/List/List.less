@@ -1,0 +1,20 @@
+.modeList{
+  .main{
+    display: flex;
+    .left{
+      flex: 0 0 140px;
+      color: #ffffff;
+      .child{
+        height: 40px;
+        line-height: 40px;
+        padding-left: 20px;
+        &:not(:last-child){
+          border-bottom: 1px solid #ffffff;
+        }
+      }
+    }
+    .right{
+      flex: 1;
+    }
+  }
+}

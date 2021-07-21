@@ -1,18 +1,11 @@
-import Text from "../Pages/Text/Text";
-import Detail from "../Pages/Detail/Detail";
 import Home from "../Pages/Home/Home";
 import List from "../Pages/List/List";
-import Date from "../Pages/Date/Date";
+import Index from "../Pages/Index/Index";
 import {YRoute} from "../Type/TRoute";
 
 const routes: YRoute[] = [
   {
-    path: "/Text",
-    name: "Text",
-    component: Text
-  },
-  {
-    path: "/Home",
+    path: "/Page",
     name: "Home",
     component: Home,
     children: true,
@@ -25,19 +18,15 @@ const routes: YRoute[] = [
     }
   },
   {
-    path: "/Detail",
-    name: "Detail",
-    component: Detail
-  },
-  {
     path: "/List",
     name: "List",
-    component: List
+    component: List,
+    children: true
   },
   {
-    path: "/Date",
-    name: "Date",
-    component: Date
+    path: "/Index",
+    name: "Index",
+    component: Index
   }
 ];
 

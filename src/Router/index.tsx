@@ -14,7 +14,7 @@ const Router = ({loading}: {loading: boolean}) => (
     {/*<BrowserRouter>*/}
     {/*  <CacheSwitch>*/}
     {/*    {childRoute(routes)}*/}
-    {/*    <Redirect from="/" to="/Home" />*/}
+    {/*    <Redirect from="/" to="/Page" />*/}
     {/*  </CacheSwitch>*/}
     {/*</BrowserRouter>*/}
     <HashRouter>

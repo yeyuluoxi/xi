@@ -1,31 +1,19 @@
 import "./Home.less";
 import React, {useState, useEffect} from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
-import Request from "../../Axios/request";
-import {DatePicker, Table} from "antd";
-import {ColumnType} from "antd/lib/table/interface";
+import {DatePicker} from "antd";
 import Paging from "../../Hook/Component/Paging/Paging";
 import {linkTo, setTime} from "../../Hook/Method";
-import {HomeItem, HomeProp} from "../../Type/Home";
+import {HomeProp} from "../../Type/Page/PHome";
 import {Moment} from "moment";
 import {YStore} from "../../Type/TStore";
 
 const Home = (props: HomeProp) => {
-// function Home(props: HomeProp) {
+// function Page(props: HomeProp) {
   console.log(props, "params");
   const [page, setPage] = useState<number>(5);
-  const [list, setList] = useState<HomeItem[]>([]);
   const [date, setDate] = useState<Moment | null>(null);
-  const getList = (page?: number) => {
-    if(page) setPage(page);
-    Request.HomeReq.getList<{list: HomeItem[]}>({
-      page: page || 1,
-      size: 15
-    }).then((result) => {
-      setList(result.data.list);
-    });
-  };
-  const changePage = (val: number) => getList(val);
+  const changePage = (val: number) => setPage(val);
 
   const getTime = (date: any, val: string) => {
     if(val) setDate(setTime(val));
@@ -33,21 +21,8 @@ const Home = (props: HomeProp) => {
     props.setVal(Math.floor(Math.random() * 100));
   };
 
-  const columns: ColumnType<HomeItem>[] = [
-    {title: "名称", dataIndex: "projectname"},
-    {
-      title: "来源",
-      dataIndex: "source",
-      render: (a) => {
-        return (
-          <div>{a}</div>
-        );
-      }
-    }
-  ];
   useEffect(() => {
     document.title = "主页";
-    getList();
   }, []);
 
   const toDetail = () => {
@@ -63,12 +38,6 @@ const Home = (props: HomeProp) => {
       <div>{props.val}</div>
       <div className="yButton" onClick={toText}>其他</div>
       <DatePicker value={date} onChange={getTime} showToday={false} inputReadOnly={true}/>
-      <Table
-        dataSource={list}
-        rowKey="id"
-        columns={columns}
-        pagination={false}
-      />
       <Paging  page={page} changePage={changePage} pageTotal={20} total={100}/>
     </div>
   );
@@ -82,7 +51,7 @@ const mapStateToProps = (state: YStore) => {
 
 const mapDispatchToProps: MapDispatchToPropsFunction<any ,any> = (dispatch) => {
   return {
-    setVal: (val: number) => dispatch({type: "Home", val})
+    setVal: (val: number) => dispatch({type: "Page", val})
   };
 };
 

@@ -3,7 +3,7 @@ import {RouterProps} from "react-router-dom";
 
 const Detail = (props: RouterProps) => {
   const toHome = () => {
-    props.history.push("/Home");
+    props.history.push("/Page");
   };
   return (
     <div className="modeDetail">

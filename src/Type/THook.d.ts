@@ -18,11 +18,11 @@ export type YLink = (
   params?: Object
 ) => void
 
+//  YuDate
 export interface DateProps{
   gDate?: Function,
   date: string
 }
-
 export interface YDateItem{
   type: "before" | "after" | "now",
   day: number
@@ -31,3 +31,9 @@ export type YDateList = (
   year: number,
   month: number
 ) => YDateItem[]
+
+//  YuHead
+export interface YHeadProps extends RouterProps{
+  title: string,
+  path: string
+}

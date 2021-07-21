@@ -19,7 +19,7 @@ const initState: YStore = {
 
 const reducer: Reducer<YStore, YAct> = (state = initState, action) => {
   switch (action.type) {
-    case "Home":
+    case "Page":
       return {
         ...state,
         val: action.val || ""
