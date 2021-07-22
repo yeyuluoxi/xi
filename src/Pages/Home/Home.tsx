@@ -2,7 +2,7 @@ import "./Home.less";
 import React, {useState, useEffect} from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
 import {DatePicker} from "antd";
-import Paging from "../../Hook/Component/Paging/Paging";
+import YuPage from "../../Hook/Component/YuPage/YuPage";
 import {linkTo, setTime} from "../../Hook/Method";
 import {HomeProp} from "../../Type/Page/PHome";
 import {Moment} from "moment";
@@ -38,7 +38,7 @@ const Home = (props: HomeProp) => {
       <div>{props.val}</div>
       <div className="yButton" onClick={toText}>其他</div>
       <DatePicker value={date} onChange={getTime} showToday={false} inputReadOnly={true}/>
-      <Paging  page={page} changePage={changePage} pageTotal={20} total={100}/>
+      <YuPage page={page} changePage={changePage} pageTotal={20} total={100}/>
     </div>
   );
 };

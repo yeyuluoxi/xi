@@ -1,0 +1,42 @@
+.list {
+  width: 750px;
+  height: 70px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin-left: 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  .tab {
+    transform: translateX(-100px);
+    transition: all 0.3s;
+    width: 100%;
+    display: flex;
+    -webkit-touch-callout: none;
+    /* Chrome/Safari/Opera */
+    -webkit-user-select: none;
+    /* Konqueror */
+    -khtml-user-select: none;
+    /* Firefox */
+    -moz-user-select: none;
+    /* Internet Explorer/Edge */
+    -ms-user-select: none;
+    /* Non-prefixed version, currently not supported by any browser */
+    user-select: none;
+    .item {
+      cursor: pointer;
+      flex: 0 0 150px;
+      text-align: center;
+      height: 70px;
+      line-height: 70px;
+      &:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+    }
+    .active {
+      color: #0045d1;
+      background: rgba(0, 69, 209, 0.15);
+    }
+  }
+}

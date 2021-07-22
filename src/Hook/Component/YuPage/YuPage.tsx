@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
-import "./Paging.less";
+import "./YuPage.less";
 
 interface PageProps{
   page: number, //  当前页码
@@ -9,7 +9,7 @@ interface PageProps{
   interval?: number   //  点省略时向前或后跳转页数,默认5
 }
 
-const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProps) => {
+const YuPage = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProps) => {
   const dealChange = (current: number) => {
     switch (current){
       case -1:
@@ -92,4 +92,4 @@ const Paging = ({page, changePage, pageTotal, total = 0, interval = 5}: PageProp
   );
 };
 
-export default Paging;
+export default YuPage;

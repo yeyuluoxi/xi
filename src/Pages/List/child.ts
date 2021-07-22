@@ -1,6 +1,7 @@
 import {YRoute} from "../../Type/TRoute";
 import Date from "../../Pages/Date/Date";
 import Page from "../Page/Page";
+import Slider from "../Slider/Slider";
 
 const cList: YRoute[] = [
   {
@@ -12,6 +13,11 @@ const cList: YRoute[] = [
     path: "/Date",
     name: "Date",
     component: Date
+  },
+  {
+    path: "/Slider",
+    name: "Slider",
+    component: Slider
   }
 ];
 
