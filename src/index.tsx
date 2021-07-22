@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
-//引入样式
-// import 'antd/dist/antd.css';
+//引入样式  不能使用绝对路径
 import './Assets/css/common.global.less';
 import "./Assets/css/antd.global.less";
 
