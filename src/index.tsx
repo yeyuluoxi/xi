@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 //引入样式
 // import 'antd/dist/antd.css';
 import './Assets/css/common.global.less';
+import "./Assets/css/antd.global.less";
 
 import Router from "./Router";
 import {Provider} from "react-redux";

@@ -1,38 +1,26 @@
 import "./Feature.less";
-import React, {useState} from "react";
+import React from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
-import {DatePicker} from "antd";
-import YuPage from "@/Hook/Component/YuPage/YuPage";
-import {linkTo, setTime} from "@/Hook/Method";
+import {linkTo} from "@/Hook/Method";
 import {HomeProp} from "@/Type/Page/PHome";
-import {Moment} from "moment";
 import {YStore} from "@/Type/TStore";
+import YuHead from "@/Hook/Component/YuHead/YuHead";
 
 const Feature = (props: HomeProp) => {
-  const [page, setPage] = useState<number>(5);
-  const [date, setDate] = useState<Moment | null>(null);
-  const changePage = (val: number) => setPage(val);
-
-  const getTime = (date: any, val: string) => {
-    if(val) setDate(setTime(val));
-    else setDate(null);
+  const setVal = () => {
     props.setVal(Math.floor(Math.random() * 100));
   };
-
   const toDetail = () => {
     linkTo(props, "Detail", true);
   };
-  const toText = () => {
-    props.history.push("/Text");
-  };
-
   return (
     <div styleName="modeHome">
-      <div className="yButton" onClick={toDetail}>详情</div>
-      <div>{props.val}</div>
-      <div className="yButton" onClick={toText}>其他</div>
-      <DatePicker value={date} onChange={getTime} showToday={false} inputReadOnly={true}/>
-      <YuPage page={page} changePage={changePage} pageTotal={20} total={100}/>
+      <YuHead path="Index" title="功能"  history={props.history}/>
+      <div className="yButton" onClick={setVal}>更改数字</div>
+      <div styleName="number">{props.val}</div>
+      <br/>
+      <br/>
+      <div className="yButton" onClick={toDetail}>详情页</div>
     </div>
   );
 };
