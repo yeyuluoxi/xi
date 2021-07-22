@@ -1,4 +1,4 @@
-import {YDateItem, YDateList} from "../../../Type/THook";
+import {YDateItem, YDateList} from "@/Type/THook";
 
 const maxList: number[] = [1, 3, 5, 7, 8, 10, 12];  //  31天月份
 const minList: number[] = [4, 6, 9, 11];   //  30天月份

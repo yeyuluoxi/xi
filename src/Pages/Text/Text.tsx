@@ -1,6 +1,6 @@
 import React from "react";
-import "./Text.less";
 import {RouterProps} from "react-router-dom";
+import "./Text.less";
 
 const Text = (props: RouterProps) => {
 

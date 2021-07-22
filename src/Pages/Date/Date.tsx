@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import YuDate from "../../Hook/Component/YuDate/YuDate";
+import YuDate from "@/Hook/Component/YuDate/YuDate";
 import "./Date.less";
 
 const Date = () => {

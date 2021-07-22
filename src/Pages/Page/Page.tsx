@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import YuPage from "../../Hook/Component/YuPage/YuPage";
+import YuPage from "@/Hook/Component/YuPage/YuPage";
 
 const Page = () => {
   const [page, setPage] = useState<number>(1);

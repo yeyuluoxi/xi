@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import YuSlider from "../../Hook/Component/YuSlider/YuSlider";
+import YuSlider from "@/Hook/Component/YuSlider/YuSlider";
 
 const Slider = () => {
   const list: string[] = [

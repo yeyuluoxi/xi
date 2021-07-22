@@ -5,7 +5,7 @@ import {CacheSwitch} from "react-router-cache-route";
 import routes from "./route";
 import {connect} from "react-redux";
 import childRoute from "./child";
-import {YStore} from "../Type/TStore";
+import {YStore} from "@/Type/TStore";
 
 import {Spin} from "antd";
 

@@ -1,5 +1,5 @@
 import moment from "moment";
-import {YSetTime} from "../../Type/THook";
+import {YSetTime} from "@/Type/THook";
 
 export const setTime: YSetTime = (
   date = "",

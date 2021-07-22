@@ -1,11 +1,11 @@
 import React from "react";
 import {HashRouter, Redirect, RouterProps} from "react-router-dom";
-import YuHead from "../../Hook/Component/YuHead/YuHead";
-import cList from "./child";
-import childRoute from "../../Router/child";
 import {CacheSwitch} from "react-router-cache-route";
+import YuHead from "@/Hook/Component/YuHead/YuHead";
+import childRoute from "@/Router/child";
+import {linkTo} from "@/Hook/Method";
+import cList from "./child";
 import "./List.less";
-import {linkTo} from "../../Hook/Method";
 
 const List = (props: RouterProps) => {
   const toCItem = (path: string) => {

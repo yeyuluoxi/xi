@@ -1,5 +1,5 @@
-import {YRoute} from "../../Type/TRoute";
-import Date from "../../Pages/Date/Date";
+import {YRoute} from "@/Type/TRoute";
+import Date from "../Date/Date";
 import Page from "../Page/Page";
 import Slider from "../Slider/Slider";
 

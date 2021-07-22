@@ -1,6 +1,6 @@
 import {getAxios} from "./axios";
 import URL from "./url";
-import {TReq, YObject} from "../Type/TAxios";
+import {TReq, YObject} from "@/Type/TAxios";
 
 
 const HomeReq: TReq = {

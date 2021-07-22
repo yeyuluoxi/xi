@@ -1,7 +1,7 @@
 import axios, {AxiosRequestConfig} from 'axios';
 import qs from "qs";
-import store from "../Store";
-import {AxiosGet, AxiosPost, IAxiosMethod, YObject} from "../Type/TAxios";
+import store from "@/Store";
+import {AxiosGet, AxiosPost, IAxiosMethod, YObject} from "@/Type/TAxios";
 
 const uid: string = localStorage.getItem("uid") || "";
 

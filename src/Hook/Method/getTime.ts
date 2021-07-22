@@ -1,4 +1,4 @@
-import {YGetTime} from "../../Type/THook";
+import {YGetTime} from "@/Type/THook";
 
 const getTime: YGetTime = (
   time,

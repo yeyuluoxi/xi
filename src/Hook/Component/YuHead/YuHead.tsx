@@ -1,6 +1,6 @@
 import React from "react";
-import {YHeadProps} from "../../../Type/THook";
-import {linkTo} from "../../Method/index";
+import {YHeadProps} from "@/Type/THook";
+import {linkTo} from "@/Hook/Method/index";
 import "./YuHead.less";
 
 const YuHead = (props: YHeadProps) => {

@@ -1,8 +1,8 @@
 import React from "react";
 import {RouterProps} from "react-router-dom";
+import {UIndexItem} from "@/Type/Page/PIndex";
+import {linkTo} from "@/Hook/Method/index";
 import "./Index.less";
-import {UIndexItem} from "../../Type/Page/PIndex";
-import {linkTo} from "../../Hook/Method/index";
 
 const Index = (props: RouterProps) => {
   const list: UIndexItem[] = [

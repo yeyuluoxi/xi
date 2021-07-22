@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import "./YuDate.less";
 
-import rightIcon from "../../../Assets/image/right.png";
+import rightIcon from "@/Assets/image/right.png";
 import dateList from "./DateList";
-import {DateProps} from "../../../Type/THook";
+import {DateProps} from "@/Type/THook";
 
 const YuDate = ({date, gDate = () => {}}: DateProps) => {
   if(!date){

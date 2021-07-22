@@ -1,7 +1,7 @@
-import Feature from "../Pages/Feature/Feature";
-import List from "../Pages/List/List";
-import Index from "../Pages/Index/Index";
-import {YRoute} from "../Type/TRoute";
+import Feature from "@/Pages/Feature/Feature";
+import List from "@/Pages/List/List";
+import Index from "@/Pages/Index/Index";
+import {YRoute} from "@/Type/TRoute";
 
 const routes: YRoute[] = [
   {

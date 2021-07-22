@@ -1,16 +1,14 @@
 import "./Feature.less";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
 import {DatePicker} from "antd";
-import YuPage from "../../Hook/Component/YuPage/YuPage";
-import {linkTo, setTime} from "../../Hook/Method";
-import {HomeProp} from "../../Type/Page/PHome";
+import YuPage from "@/Hook/Component/YuPage/YuPage";
+import {linkTo, setTime} from "@/Hook/Method";
+import {HomeProp} from "@/Type/Page/PHome";
 import {Moment} from "moment";
-import {YStore} from "../../Type/TStore";
+import {YStore} from "@/Type/TStore";
 
 const Feature = (props: HomeProp) => {
-// function Page(props: HomeProp) {
-  console.log(props, "params");
   const [page, setPage] = useState<number>(5);
   const [date, setDate] = useState<Moment | null>(null);
   const changePage = (val: number) => setPage(val);
@@ -20,10 +18,6 @@ const Feature = (props: HomeProp) => {
     else setDate(null);
     props.setVal(Math.floor(Math.random() * 100));
   };
-
-  useEffect(() => {
-    document.title = "主页";
-  }, []);
 
   const toDetail = () => {
     linkTo(props, "Detail", true);
