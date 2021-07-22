@@ -6,7 +6,7 @@ import {linkTo} from "../../Hook/Method/index";
 
 const Index = (props: RouterProps) => {
   const list: UIndexItem[] = [
-    {name: "功能", path: "Text", color: "#9ad562"},
+    {name: "功能", path: "Feature", color: "#9ad562"},
     {name: "组件", path: "List", color: "#132456"}
   ];
   const toPage = (path: string) => {

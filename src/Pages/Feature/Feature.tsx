@@ -1,4 +1,4 @@
-import "./Home.less";
+import "./Feature.less";
 import React, {useState, useEffect} from "react";
 import {connect, MapDispatchToPropsFunction} from "react-redux";
 import {DatePicker} from "antd";
@@ -8,7 +8,7 @@ import {HomeProp} from "../../Type/Page/PHome";
 import {Moment} from "moment";
 import {YStore} from "../../Type/TStore";
 
-const Home = (props: HomeProp) => {
+const Feature = (props: HomeProp) => {
 // function Page(props: HomeProp) {
   console.log(props, "params");
   const [page, setPage] = useState<number>(5);
@@ -55,4 +55,4 @@ const mapDispatchToProps: MapDispatchToPropsFunction<any ,any> = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Feature);
