@@ -13,7 +13,7 @@ module.exports = function (app){
   );
   app.use("/local",
     createProxyMiddleware({
-      target: 'http://192.168.1.27:9100',
+      target: 'http://127.0.0.1:80',
       secure: false,
       changeOrigin: true,
       pathRewrite: {
